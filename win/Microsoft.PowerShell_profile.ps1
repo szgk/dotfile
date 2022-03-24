@@ -13,5 +13,5 @@ Set-PSReadLineKeyHandler -Key "Ctrl+n" -Function NextHistory
 
 function global:prompt {
     $now = Get-Date -format "HH:mm"
-    $now + " " + $(get-location) + " > "
+    $now + " " + $(get-location) + " $ "
 }

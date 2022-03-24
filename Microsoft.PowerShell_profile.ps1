@@ -10,3 +10,8 @@ Set-PSReadLineKeyHandler -Key "Alt+f" -Function NextWord
 Set-PSReadLineKeyHandler -Key "Alt+b" -Function BackwardWord
 Set-PSReadLineKeyHandler -Key "Ctrl+p" -Function PreviousHistory
 Set-PSReadLineKeyHandler -Key "Ctrl+n" -Function NextHistory
+
+function global:prompt {
+    $now = Get-Date -format "HH:mm"
+    $now + " " + $(get-location) + " > "
+}

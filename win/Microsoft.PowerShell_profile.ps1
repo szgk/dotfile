@@ -15,3 +15,5 @@ function global:prompt {
     $now = Get-Date -format "HH:mm"
     $now + " " + $(get-location) + " $ "
 }
+
+fnm env --use-on-cd | Out-String | Invoke-Expression

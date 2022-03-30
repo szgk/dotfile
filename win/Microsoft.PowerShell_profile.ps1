@@ -11,9 +11,26 @@ Set-PSReadLineKeyHandler -Key "Alt+b" -Function BackwardWord
 Set-PSReadLineKeyHandler -Key "Ctrl+p" -Function PreviousHistory
 Set-PSReadLineKeyHandler -Key "Ctrl+n" -Function NextHistory
 
-function global:prompt {
-    $now = Get-Date -format "HH:mm"
-    $now + " " + $(get-location) + " $ "
+# Import the Chocolatey Profile that contains the necessary code to enable
+# tab-completions to function for `choco`.
+# Be aware that if you are missing these lines from your profile, tab completion
+# for `choco` will not function.
+# See https://ch0.co/tab-completion for details.
+$ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
+if (Test-Path($ChocolateyProfile)) {
+  Import-Module "$ChocolateyProfile"
 }
 
 fnm env --use-on-cd | Out-String | Invoke-Expression
+
+Import-Module posh-git
+
+function global:prompt {
+    # $now + " " + $(get-location) + " $ "
+    $now = Get-Date -format "HH:mm"
+    $origLastExitCode = $LASTEXITCODE
+    Write-VcsStatus
+    Write-Host $now ($ExecutionContext.SessionState.Path.CurrentLocation)  
+    $LASTEXITCODE = $origLastExitCode
+    "$('$' * ($nestedPromptLevel + 1)) "
+}

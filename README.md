@@ -10,5 +10,5 @@
     ```
 3. posh-git
   - https://github.com/dahlbyk/posh-git
-4. C:\Program Files\PowerShell\7 に.ps1設置
+4. C:\Program Files\PowerShell\7 に Microsoft.PowerShell_profile.ps1設置
 5. powershell再起動

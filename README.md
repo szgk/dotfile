@@ -1,22 +1,10 @@
 ## windows
 
-1. Chocolatey インストール
-
-- 公式サイトからコマンドコピペ
-  - https://chocolatey.org/install#individual
-  - ```
-    Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
-    ```
-
-2. fnm
-
-- ```
-    choco install fnm -y
-  ```
-
-3. posh-git
-
+1. node https://zenn.dev/link/comments/68ecb3322de262
+2. posh-git
 - https://github.com/dahlbyk/posh-git
-
-4. 'C:\Program Files\PowerShell\7' に Microsoft.PowerShell_profile.ps1 設置
-5. powershell 再起動
+4. コンソール https://zenn.dev/link/comments/7d25afec590424
+5. wslインストール　https://zenn.dev/link/comments/0689b334f1ec25
+6. ClaudeCodeインストール https://zenn.dev/szgk/scraps/494d086e5cab6f
+7. geminiインストール（wsl上にもインストール）
+8. python https://zenn.dev/link/comments/15673b2467ed48
